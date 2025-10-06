@@ -1,0 +1,40 @@
+<!--
+  Generated template for the FreklamePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+  <header-modal title="NPWPD" subtitle="View Detail"></header-modal>
+</ion-header>
+
+<ion-content bg-style>
+	<ion-card [formGroup]="formInput">
+		<ion-item class="border-bottom">
+	      <ion-label stacked>NPWPD</ion-label>
+	      <ion-input type="text" name="npwpd" formControlName="npwpd" [(ngModel)]="formInput.npwpd"></ion-input>
+	    </ion-item>
+	    <ion-item class="border-bottom">
+	      <ion-label stacked>WP Nama</ion-label>
+	      <ion-input type="text" name="nama_wp" formControlName="nama_wp" [(ngModel)]="formInput.nama_wp"></ion-input>
+	    </ion-item>
+	    
+	    <ion-item class="border-bottom">
+	      <ion-label stacked>Alamat</ion-label>
+	      <ion-textarea 
+				name="alamat" 
+	      		formControlName="alamat" 
+	      		[(ngModel)]="formInput.alamat"
+	      		rows=3
+	      ></ion-textarea>
+	    </ion-item>
+	</ion-card>
+</ion-content>
+
+<ion-footer>
+	<ion-item>
+	<button color="color10" ion-button round full icon-left (tap)="close()">
+        <ion-icon name="checkmark"></ion-icon>Close
+    </button>
+    </ion-item>
+</ion-footer>

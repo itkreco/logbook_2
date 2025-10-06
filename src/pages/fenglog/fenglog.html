@@ -1,0 +1,146 @@
+<!--
+  Generated template for the FreklamePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+  <header-modal title="Engine Logbook" subtitle="Form Engine Logbook"></header-modal>
+</ion-header>
+
+<ion-content bg-style>
+	<ion-card [formGroup]="formInput">
+		<ion-input type="hidden" name="id" formControlName="id" [(ngModel)]="formInput.id"></ion-input>
+		<ion-input type="hidden" name="trip_id" formControlName="trip_id" [(ngModel)]="formInput.trip_id"></ion-input>
+		
+		<ion-item class="border-bottom">
+	      <ion-label stacked>Time</ion-label>
+	      <ion-input type="text" name="local_time" formControlName="local_time" [(ngModel)]="formInput.local_time"
+	      [class.invalid]="!formInput.controls.local_time?.valid && formInput.controls.local_time?.dirty"></ion-input>
+	    </ion-item>
+	    <div *ngIf="!formInput.controls.local_time?.valid  && formInput.controls.local_time?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan Local time.</p>
+	    </div>
+	    <ion-item class="border-bottom">
+     		<ion-label stacked>Main Hour</ion-label>
+			<ion-input type="number" name="main_hour" formControlName="main_hour" [(ngModel)]="formInput.main_hour" [class.invalid]="!formInput.controls.main_hour?.valid && formInput.controls.main_hour?.dirty"></ion-input>
+        </ion-item>
+	    <div *ngIf="!formInput.controls.main_hour?.valid  && formInput.controls.main_hour?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan main hour yang valid.</p>
+	    </div>
+	    <ion-item class="border-bottom">
+     		<ion-label stacked>Main eng jam start</ion-label>
+			<ion-input type="text" name="main_eng_start" formControlName="main_eng_start" [(ngModel)]="formInput.main_eng_start" [class.invalid]="!formInput.controls.main_eng_start?.valid && formInput.controls.main_eng_start?.dirty"></ion-input>
+        </ion-item>
+	    <div *ngIf="!formInput.controls.main_eng_start?.valid  && formInput.controls.main_eng_start?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan main eng start yang valid.</p>
+	    </div>
+	    <ion-item class="border-bottom">
+     		<ion-label stacked>Main eng jam stop</ion-label>
+			<ion-input type="text" name="main_eng_stop" formControlName="main_eng_stop" [(ngModel)]="formInput.main_eng_stop" [class.invalid]="!formInput.controls.main_eng_stop?.valid && formInput.controls.main_eng_stop?.dirty"></ion-input>
+        </ion-item>
+	    <div *ngIf="!formInput.controls.main_eng_stop?.valid  && formInput.controls.main_eng_stop?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan main eng stop yang valid.</p>
+	    </div>
+	    <ion-item class="border-bottom">
+     		<ion-label stacked>Batt eng sebelum (%)</ion-label>
+			<ion-input type="number" name="batt_eng_sebelum" formControlName="batt_eng_sebelum" [(ngModel)]="formInput.batt_eng_sebelum" [class.invalid]="!formInput.controls.batt_eng_sebelum?.valid && formInput.controls.batt_eng_sebelum?.dirty"></ion-input>
+        </ion-item>
+	    <div *ngIf="!formInput.controls.batt_eng_sebelum?.valid  && formInput.controls.batt_eng_sebelum?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan batt eng sebelum yang valid.</p>
+	    </div>
+	    <ion-item class="border-bottom">
+     		<ion-label stacked>Batt eng sesudah (%)</ion-label>
+			<ion-input type="number" name="batt_eng_sesudah" formControlName="batt_eng_sesudah" [(ngModel)]="formInput.batt_eng_sesudah" [class.invalid]="!formInput.controls.batt_eng_sesudah?.valid && formInput.controls.batt_eng_sesudah?.dirty"></ion-input>
+        </ion-item>
+	    <div *ngIf="!formInput.controls.batt_eng_sesudah?.valid  && formInput.controls.batt_eng_sesudah?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan batt eng sesudah yang valid.</p>
+	    </div>
+	    <ion-item class="border-bottom">
+     		<ion-label stacked>Batt charge sebelum (%)</ion-label>
+			<ion-input type="number" name="batt_charge_sebelum" formControlName="batt_charge_sebelum" [(ngModel)]="formInput.batt_charge_sebelum" [class.invalid]="!formInput.controls.batt_charge_sebelum?.valid && formInput.controls.batt_charge_sebelum?.dirty"></ion-input>
+        </ion-item>
+	    <div *ngIf="!formInput.controls.batt_charge_sebelum?.valid  && formInput.controls.batt_charge_sebelum?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan batt charge sebelum yang valid.</p>
+	    </div>
+	    <ion-item class="border-bottom">
+     		<ion-label stacked>Batt charge sesudah (%)</ion-label>
+			<ion-input type="number" name="batt_charge_sesudah" formControlName="batt_charge_sesudah" [(ngModel)]="formInput.batt_charge_sesudah" [class.invalid]="!formInput.controls.batt_charge_sesudah?.valid && formInput.controls.batt_charge_sesudah?.dirty"></ion-input>
+        </ion-item>
+	    <div *ngIf="!formInput.controls.batt_charge_sesudah?.valid  && formInput.controls.batt_charge_sesudah?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan batt charge sesudah yang valid.</p>
+	    </div>
+	    <ion-item class="border-bottom">
+     		<ion-label stacked>Energy (Wh)</ion-label>
+			<ion-input type="number" name="energy" formControlName="energy" [(ngModel)]="formInput.energy" [class.invalid]="!formInput.controls.energy?.valid && formInput.controls.energy?.dirty"></ion-input>
+        </ion-item>
+	    <div *ngIf="!formInput.controls.energy?.valid  && formInput.controls.energy?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan energy yang valid.</p>
+	    </div>
+	    <ion-item class="border-bottom">
+     		<ion-label stacked>Token sebelum</ion-label>
+			<ion-input type="number" name="token_sebelum" formControlName="token_sebelum" [(ngModel)]="formInput.token_sebelum" [class.invalid]="!formInput.controls.token_sebelum?.valid && formInput.controls.token_sebelum?.dirty"></ion-input>
+        </ion-item>
+	    <div *ngIf="!formInput.controls.token_sebelum?.valid  && formInput.controls.token_sebelum?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan token sebelum yang valid.</p>
+	    </div>
+	    <ion-item class="border-bottom">
+     		<ion-label stacked>Token sesudah</ion-label>
+			<ion-input type="number" name="token_sesudah" formControlName="token_sesudah" [(ngModel)]="formInput.token_sesudah" [class.invalid]="!formInput.controls.token_sesudah?.valid && formInput.controls.token_sesudah?.dirty"></ion-input>
+        </ion-item>
+	    <div *ngIf="!formInput.controls.token_sesudah?.valid  && formInput.controls.token_sesudah?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan token sesudah yang valid.</p>
+	    </div>
+	    <ion-item class="border-bottom">
+     		<ion-label stacked>Jam kerja genset start</ion-label>
+			<ion-input type="text" name="jam_genset_start" formControlName="jam_genset_start" [(ngModel)]="formInput.jam_genset_start" [class.invalid]="!formInput.controls.jam_genset_start?.valid && formInput.controls.jam_genset_start?.dirty"></ion-input>
+        </ion-item>
+	    <div *ngIf="!formInput.controls.jam_genset_start?.valid  && formInput.controls.jam_genset_start?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan jam genset start yang valid.</p>
+	    </div>
+	    <ion-item class="border-bottom">
+     		<ion-label stacked>Jam kerja genset stop</ion-label>
+			<ion-input type="text" name="jam_genset_stop" formControlName="jam_genset_stop" [(ngModel)]="formInput.jam_genset_stop" [class.invalid]="!formInput.controls.jam_genset_stop?.valid && formInput.controls.jam_genset_stop?.dirty"></ion-input>
+        </ion-item>
+	    <div *ngIf="!formInput.controls.jam_genset_stop?.valid  && formInput.controls.jam_genset_stop?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan jam genset stop yang valid.</p>
+	    </div>
+	    
+	    <ion-item class="border-bottom">
+	      <ion-label fixed>Remark/Keterangan</ion-label>
+	      <ion-textarea 
+	      		type="text" name="remark" 
+	      		formControlName="remark" 
+	      		[(ngModel)]="formInput.remark"
+	      		rows=3
+	      		[disabled]="formInput.controls.remark?.disabled"
+	      ></ion-textarea>
+	    </ion-item>
+	</ion-card>
+</ion-content>
+
+<ion-footer *ngIf="bReadonly==false">
+	<ion-row>
+	    <!--
+	    <ion-col no-margin no-padding>
+	      <button color="color10" ion-button full (click)="reset()" class="sort">
+	        <ion-icon name="refresh" style="zoom: 1.5;"></ion-icon>
+	        &nbsp;
+	        Reset
+	      </button>
+	    </ion-col>
+	     
+	    <ion-col no-margin no-padding>
+	      <button color="color10" ion-button full (click)="debugForm()" class="sort">
+	        <ion-icon name="code" style="zoom: 1.5;"></ion-icon>
+	        &nbsp;debug
+	      </button>
+	    </ion-col>
+	     -->
+		<ion-col no-margin no-padding>
+			<button color="color7" ion-button full icon-left (tap)="save()" [disabled]="!formInput.valid&&mfilter.sort<0">
+		        <ion-icon name="checkmark"></ion-icon>Save
+		    </button>
+	    </ion-col>
+    </ion-row>
+</ion-footer>

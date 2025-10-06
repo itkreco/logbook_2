@@ -1,0 +1,66 @@
+<ion-menu [content]="content" type="overlay">
+  <ion-header>
+    <ion-toolbar>
+      <div class="contents">
+        <div class="left">
+          <img class="logo" src="assets/imgs/avatar.png">
+        </div>
+        <div class="right" >
+          <div class="name">{{avatar.welcome}}</div>
+          <div>{{avatar.email}}</div>
+        </div>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-item ion-item *ngFor="let p of pages;  let i=index" (tap)="openPage(p.component, i);">
+      <ion-row>
+
+        <!-- Menu Icon  -->
+        <ion-col col-2>
+          <ion-icon name='custom-{{p.icon}}' style="zoom: 1.5"></ion-icon>
+          <!-- <i class="{{p.icon}}" style="color: #005C97" aria-hidden="true"></i> -->
+        </ion-col>
+
+        <!--  Name of Menu  -->
+        <ion-col col-10 class="align-text-middle">
+          <span ion-text color="color12">{{p.title}}</span>
+          <!-- <ion-icon color="color12" [name]="selectedMenu == i? 'arrow-down' : 'arrow-forward'" *ngIf="p.subPages" float-right></ion-icon> -->
+        </ion-col>
+
+        <!-- Sub Menus  -->
+        <ion-list no-lines [hidden]="selectedMenu != i">
+          <ion-item no-border *ngFor="let subPage of p.subPages;let i2=index" (tap)="openPage(subPage.component)">
+            <ion-row>
+              <!-- Icon of Sub Menu  -->
+              <ion-col col-5>
+                <ion-icon name='custom-{{subPage.icon}}' style="zoom: 2"></ion-icon>
+              </ion-col>
+
+              <!-- Name of Sub-menu  -->
+              <ion-col col-7 class="align-text-middle">
+                <span ion-text color="color12">{{subPage.title}}</span>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-list>
+
+      </ion-row>
+    </ion-item>
+  </ion-content>
+
+  <!-- Footer  -->
+  <ion-footer>
+    <!-- Logout Option " -->
+    <button *ngIf="avatar.active!==null" ion-button full no-margin color="color1" (tap)="logout()">
+      <i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp; Logout
+    </button>
+    <button *ngIf="avatar.active==null" ion-button full no-margin color="color1" (tap)="login()">
+      <!-- <ion-icon name="send"></ion-icon>&nbsp; Login -->
+      <i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp; Login
+    </button>
+  </ion-footer>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

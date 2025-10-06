@@ -1,0 +1,73 @@
+page-home {
+  .card {
+    margin: 0%;
+    margin-bottom: 0.5px;
+    width: 100%;
+  }
+  img {
+    height: 35px;
+  }
+  a {
+    font-size: 1.4rem;
+  }
+  ion-grid{
+  	padding-bottom:5px!important;
+  }
+  .top-up {
+    margin: 0%;
+    margin-top: 10%;
+    height: 2.1em;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 0 0.9em;
+  }
+  h4{
+      font-size: 1.2rem !important;
+  }
+  h5{
+      font-size: 0.7rem !important;
+  }
+  .text-on-bottom > .button-inner {
+      flex-direction: column;
+  }
+  .customer-service {
+    margin: 10px;
+    margin-top: 0%;
+    width: calc(100% - 20px);
+    position: relative !important;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.41);
+    border-radius: 10px;
+    .list {
+      margin: 0%;
+      .item {
+        background-color : #fcfcfc;
+        margin: 0%;
+        padding: 0%;
+        border-bottom: 1.5px solid color($colors, color13);
+        ion-thumbnail {
+          margin: 15px 30px;
+          min-width: 60px;
+          min-height: 60px;
+          img {
+            width: 60px;
+            height: 60px;
+          }
+        }
+        .item-inner {
+          padding: 0%;
+          .label {
+            margin: 0%;
+          }
+        }
+        .row .col {
+          text-align: center;
+          a {
+            color: #e93c28;
+            text-decoration: none;
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+}

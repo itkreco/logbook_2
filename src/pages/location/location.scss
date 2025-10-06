@@ -1,0 +1,35 @@
+page-location {
+    // ion-content {
+    //     background-image: linear-gradient(to right bottom, color($colors, color1), color($colors, color2));
+    //     background-size: 100% 20%;
+    //     background-repeat: no-repeat;
+    //     border-color: transparent;
+    //     .searchbar-search-icon {
+    //         top: 18px !important;
+    //     }
+    //     .searchbar-input {
+    //         border-radius: 25px !important;
+    //     }
+    // }
+    ion-header {
+        .toolbar-background {
+            background: linear-gradient(to right bottom, color($colors, color1), color($colors, color2));
+            border: none;
+        }
+        .toolbar-title {
+            color: #fff !important;
+        }
+        .searchbar-search-icon{
+            top: 16px !important;
+        }
+        .searchbar-input {
+            border-radius: 10px !important;
+        }
+    }
+   
+   ion-content{
+   		#maploc {
+				height: 100%;
+			}
+   	}
+}

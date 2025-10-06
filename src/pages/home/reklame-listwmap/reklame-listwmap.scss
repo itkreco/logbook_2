@@ -1,0 +1,84 @@
+page-reklame-listwmap {
+    #map {
+        height: 100%;
+    }
+    // ion-content {
+        .item {
+            ion-thumbnail img {
+                width: 80px;
+                height: 120px;
+            }
+            h3 {
+                font-size: 1.5rem;
+                font-weight: bold;
+                a {
+                    color:color($colors,color3);
+                    font-size: 1.2rem !important;
+                    margin-top: 0px;       
+                }        
+            }
+            ul {
+	            margin: 0px;
+	            padding: 0px;
+	            &.rating li {
+	                padding: 0px !important;
+	                background: none;
+	                color: #ffb400;
+	                ion-icon {
+	                    font-size: 15px;
+	                }
+	            }
+	        }
+            p {
+                color:color($colors,color3);
+                font-size: 1.2rem !important;
+                margin-top: 0px;          
+            }
+        }
+        .strike{
+            color:color($colors,color3);
+            text-decoration: line-through!important;
+            font-size: 1.2rem !important;
+            margin-top: 0px;            
+        }
+        a {
+            color:color($colors,color3);
+            font-size: 1.2rem !important;
+            margin-top: 0px;       
+        }
+        ion-card img {
+            width: 25%;
+            display: inline-block;
+        }        
+    // }
+      
+    .sort {
+        .action-sheet-title{
+            font-size: 3rem;
+            color: color($colors, white);
+            background: color($colors, color1);
+            text-transform: uppercase;
+        }
+        .action-sheet-button{
+            border-top: #e2e2d4 1px solid;
+        }
+        .ion-md-share {
+            color: #ED4248;
+        }
+        .ion-md-arrow-dropright-circle {
+            color: #508AE4;
+        }
+        .ion-md-heart-outline {
+            color: #31D55F;
+        }
+        .action-sheet-cancel{
+            font-size: 2rem;
+            background: linear-gradient(to right bottom, color($colors, color1), color($colors, color2));
+            color: color($colors, color3);
+        }
+        .action-sheet-cancel ion-icon,
+        .action-sheet-destructive ion-icon {
+            color: #757575;
+        }
+    }
+}

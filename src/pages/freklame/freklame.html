@@ -1,0 +1,265 @@
+<!--
+  Generated template for the FreklamePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+  <header-modal title="Logbook" subtitle="Form Logbook" [page]="(isTab)?'FreklamePage':undefined"></header-modal>
+</ion-header>
+
+<ion-content bg-style>
+	<div *ngIf="mfilter.sort<0">
+      <p padding-left style="color:#e93c28">Silahkan Pilih type format Logbook
+      
+	  	<button small ion-button icon-end round color="color10" (click)="openSort()">
+			  <ion-icon name="arrow-dropdown"></ion-icon>
+			  &nbsp;type
+		</button>
+	  <p>
+    </div>
+	<ion-card [formGroup]="formInput" *ngIf="mfilter.sort>=0">
+		<ion-input type="hidden" name="id" formControlName="id" [(ngModel)]="formInput.id"></ion-input>
+		<ion-input type="hidden" name="type_id" formControlName="type_id" [(ngModel)]="formInput.type_id"></ion-input>
+		<ion-input type="hidden" name="dept_id" formControlName="dept_id" [(ngModel)]="formInput.dept_id"></ion-input>
+		<ion-input type="hidden" name="temp_id" formControlName="temp_id" [(ngModel)]="formInput.temp_id"></ion-input>
+		<ion-input type="hidden" name="speed_id" formControlName="speed_id" [(ngModel)]="formInput.speed_id"></ion-input>
+		<ion-input type="hidden" name="pressure_id" formControlName="pressure_id" [(ngModel)]="formInput.pressure_id"></ion-input>
+		<ion-input type="hidden" name="trip_id" formControlName="trip_id" [(ngModel)]="formInput.trip_id"></ion-input>
+		
+		<ion-item class="border-bottom">
+	      <ion-label stacked>Time</ion-label>
+	      <ion-input type="text" name="local_time" formControlName="local_time" [(ngModel)]="formInput.local_time"
+	      [class.invalid]="!formInput.controls.local_time?.valid && formInput.controls.local_time?.dirty"></ion-input>
+	      <ion-avatar item-end style="text-align: -webkit-center;">
+		      <button small color="color10" ion-button clear (click)="openSort()">
+		          	<ion-icon name="arrow-dropdown-circle"></ion-icon>
+					&nbsp;{{dtDef.type[mfilter.sort].ket}}
+			  </button>
+			  <img src="{{'assets/imgs/icons/logbook/'+dtDef.type[mfilter.sort].ket+'.png'}}">
+			  
+		 </ion-avatar>
+	      
+	    </ion-item>
+	    <div *ngIf="!formInput.controls.local_time?.valid  && formInput.controls.local_time?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan Local time.</p>
+	    </div>
+	    <ion-grid>
+		    <ion-row class="ion-align-items-start">
+		        <ion-col>
+		          <ion-item class="border-bottom">
+		          		<ion-label stacked>latitude</ion-label>
+	      				<ion-input type="number" name="lat" formControlName="lat" [(ngModel)]="formInput.lat" [class.invalid]="!formInput.controls.lat?.valid && formInput.controls.lat?.dirty"></ion-input>
+	              </ion-item>
+		        </ion-col>
+		        <ion-col>
+		          <ion-item class="border-bottom">
+		          		<ion-label stacked>longitude</ion-label>
+	      				<ion-input type="number" name="lon" formControlName="lon" [(ngModel)]="formInput.lon" [class.invalid]="!formInput.controls.lon?.valid && formInput.controls.lon?.dirty"></ion-input>
+	      			</ion-item>
+		        </ion-col>
+		        <ion-col>
+		          <button ion-button item-right icon-left color='color13' (click)="getLocation()">
+			        	<ion-icon name="pin"></ion-icon>{{restProvider.user['email'].indexOf("pengawas") !== -1?'Loc':'Get'}}
+			      </button>
+		        </ion-col>
+	    	</ion-row>
+	    </ion-grid>
+	    <div *ngIf="!formInput.controls.lat?.valid  && formInput.controls.lat?.dirty||!formInput.controls.lon?.valid  && formInput.controls.lon?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan Lat/lon yang valid.</p>
+	    </div>
+	    <ion-grid *ngIf="mfilter.sort<=5">
+		    <ion-row class="ion-align-items-start">
+		      	<ion-col>
+		          	<ion-item class="border-bottom">
+				      <ion-label stacked>Speed</ion-label>
+				      <ion-input type="number" name="speed" formControlName="speed" [(ngModel)]="formInput.speed"></ion-input>
+				    </ion-item>
+		        </ion-col>
+		        <ion-col>
+		          	<ion-item class="border-bottom">
+				      <ion-label stacked>Depth</ion-label>
+				      <ion-input type="number" name="dept" formControlName="dept" [(ngModel)]="formInput.dept"></ion-input>
+				    </ion-item>
+		        </ion-col>
+		    </ion-row>
+		    <ion-row class="ion-align-items-start">
+		        <ion-col>
+		          <ion-item class="border-bottom">
+				      <ion-label stacked>COG (Course Over Ground)</ion-label>
+				      <ion-input type="number" name="cog" formControlName="cog" [(ngModel)]="formInput.cog"></ion-input>
+				    </ion-item>
+		        </ion-col>
+		      	<ion-col>
+		          	<ion-item class="border-bottom">
+				      <ion-label stacked>SOG (Speed Over Ground)</ion-label>
+				      <ion-input type="number" name="sog" formControlName="sog" [(ngModel)]="formInput.sog"></ion-input>
+				    </ion-item>
+		        </ion-col>
+		    </ion-row> 
+		    <ion-row class="ion-align-items-start">
+		        <ion-col>
+		         	  <ion-item class="border-bottom">
+					      <ion-label stacked>HDG (Heading)</ion-label>
+					      <ion-input type="number" name="hdg" formControlName="hdg" [(ngModel)]="formInput.hdg"></ion-input>
+					  </ion-item>
+		        </ion-col>
+		      	<ion-col>
+		          	<ion-item class="border-bottom">
+				      <ion-label stacked>STW (Speed Trought Water)</ion-label>
+				      <ion-input type="number" name="stw" formControlName="stw" [(ngModel)]="formInput.stw"></ion-input>
+				    </ion-item>
+		        </ion-col>
+		    </ion-row>
+		    <ion-row class="ion-align-items-start">
+		        <ion-col>
+		          <ion-item class="border-bottom">
+				      <ion-label stacked>TWD (true Wind Direction)</ion-label>
+				      <ion-input type="number" name="twd" formControlName="twd" [(ngModel)]="formInput.twd"></ion-input>
+				    </ion-item>
+		        </ion-col>
+		      	<ion-col>
+		          	<ion-item class="border-bottom">
+				      <ion-label stacked>TWS (True Wind Speed)</ion-label>
+				      <ion-input type="number" name="tws" formControlName="tws" [(ngModel)]="formInput.tws"></ion-input>
+				    </ion-item>
+		        </ion-col>
+		    </ion-row>
+		    <ion-row class="ion-align-items-start">
+		        <ion-col>
+		         	<ion-item class="border-bottom">
+				      <ion-label stacked>AWA (Apparent Wind Angle)</ion-label>
+				      <ion-input type="number" name="awa" formControlName="awa" [(ngModel)]="formInput.awa"></ion-input>
+				    </ion-item>
+		        </ion-col>
+		      	<ion-col>
+		          	<ion-item class="border-bottom">
+				      <ion-label stacked>AWS (Apparent Wire Speed)</ion-label>
+				      <ion-input type="number" name="aws" formControlName="aws" [(ngModel)]="formInput.aws"></ion-input>
+				    </ion-item>
+		        </ion-col>
+		    </ion-row>
+		    <ion-row class="ion-align-items-start">
+		        <ion-col>
+		          <ion-item class="border-bottom">
+				      <ion-label stacked>Offset</ion-label>
+				      <ion-input type="number" name="voffset" formControlName="voffset" [(ngModel)]="formInput.voffset"></ion-input>
+				    </ion-item>
+		        </ion-col>
+		      	<ion-col>
+		          	<ion-item class="border-bottom">
+				      <ion-label stacked>Driftage</ion-label>
+				      <ion-input type="number" name="driftage" formControlName="driftage" [(ngModel)]="formInput.driftage"></ion-input>
+				    </ion-item>
+		        </ion-col>
+		    </ion-row>
+		    <ion-row class="ion-align-items-start">
+		        <ion-col>
+		          	<ion-item class="border-bottom">
+				      <ion-label stacked>Water Tank</ion-label>
+				      <ion-input type="number" name="water" formControlName="water" [(ngModel)]="formInput.water"></ion-input>
+				    </ion-item>
+		        </ion-col>
+		        <!-- 
+		      	<ion-col>
+		          	<ion-item class="border-bottom">
+				      <ion-label stacked>Oil Tank</ion-label>
+				      <ion-input type="number" name="oil" formControlName="oil" [(ngModel)]="formInput.oil"></ion-input>
+				    </ion-item>
+		        </ion-col>
+		         -->
+		    </ion-row>
+		    <ion-row class="ion-align-items-start">
+		        <ion-col>
+		         <ion-item class="border-bottom">
+				      <ion-label stacked>Temp</ion-label>
+				      <ion-input type="number" name="vtemp" formControlName="vtemp" [(ngModel)]="formInput.vtemp"></ion-input>
+				    </ion-item>
+		        </ion-col>
+		      	<ion-col>
+		          	<ion-item class="border-bottom">
+				      <ion-label stacked>Pressure</ion-label>
+				      <ion-input type="number" name="pressure" formControlName="pressure" [(ngModel)]="formInput.pressure"></ion-input>
+				    </ion-item>
+		        </ion-col>
+		    </ion-row>
+		    
+      </ion-grid>
+	    <ion-item class="border-bottom">
+	      <ion-label fixed>Remark</ion-label>
+	      <ion-textarea 
+	      		type="text" name="remark" 
+	      		formControlName="remark" 
+	      		[(ngModel)]="formInput.remark"
+	      		rows=3
+	      		[disabled]="formInput.controls.remark?.disabled"
+	      ></ion-textarea>
+	    </ion-item>
+		<ion-item *ngIf="mfilter.sort<5" class="border-bottom">
+	      <ion-label fixed>Wave</ion-label>
+	      <ion-multi-picker item-content
+				[multiPickerColumns]="dtDef.wave" 
+				[(ngModel)]="formInput.wave"
+				[separator]="'_'"
+				[cancelText]="'Batal'" 
+				[doneText]="'Pilih'"
+				formControlName="wave" 
+				name="wave"
+				[class.invalid]="!formInput.controls.wave?.valid && formInput.controls.wave?.dirty"
+				[disabled]="formInput.controls.wave?.disabled">
+		  </ion-multi-picker>
+	    </ion-item>
+	    <div *ngIf="!formInput.controls.wave?.valid  && formInput.controls.wave?.dirty">
+	      <p padding-left style="color:#e93c28">Silahkan pilih gelombang(wave) yang valid.</p>
+	    </div>
+    
+    	<ion-item *ngIf="mfilter.sort<5" class="border-bottom">
+	      <ion-label fixed>Weather</ion-label>
+	      <ion-multi-picker item-content
+				[multiPickerColumns]="dtDef.weather" 
+				[(ngModel)]="formInput.weather_id"
+				[separator]="'_'"
+				[cancelText]="'Batal'" 
+				[doneText]="'Pilih'"
+				formControlName="weather_id" 
+				name="weather_id"
+				[class.invalid]="!formInput.controls.weather_id?.valid && formInput.controls.weather_id?.dirty"
+				[disabled]="formInput.controls.weather_id?.disabled">
+		  </ion-multi-picker>
+	    </ion-item>
+	    <div *ngIf="!formInput.controls.weather_id?.valid  && formInput.controls.weather_id?.dirty">
+	      <p padding-left style="color:#e93c28">Silahkan pilih cuaca (weather) yang valid.</p>
+	    </div>
+	    
+	    <ion-input type="hidden" name="sail_id" formControlName="sail_id" [(ngModel)]="formInput.sail_id"></ion-input>
+		<ion-input type="hidden" name="sail_reef" formControlName="sail_reef" [(ngModel)]="formInput.sail_reef"></ion-input>
+		<ion-input type="hidden" name="generator" formControlName="generator" [(ngModel)]="formInput.generator"></ion-input>
+		
+	</ion-card>
+</ion-content>
+
+<ion-footer *ngIf="bReadonly==false">
+	<ion-row>
+	    <!--
+	    <ion-col no-margin no-padding>
+	      <button color="color10" ion-button full (click)="reset()" class="sort">
+	        <ion-icon name="refresh" style="zoom: 1.5;"></ion-icon>
+	        &nbsp;
+	        Reset
+	      </button>
+	    </ion-col>
+	     
+	    <ion-col no-margin no-padding>
+	      <button color="color10" ion-button full (click)="debugForm()" class="sort">
+	        <ion-icon name="code" style="zoom: 1.5;"></ion-icon>
+	        &nbsp;debug
+	      </button>
+	    </ion-col>
+	     -->
+		<ion-col no-margin no-padding>
+			<button color="color7" ion-button full icon-left (tap)="save()" [disabled]="!formInput.valid&&mfilter.sort<0">
+		        <ion-icon name="checkmark"></ion-icon>Save
+		    </button>
+	    </ion-col>
+    </ion-row>
+</ion-footer>

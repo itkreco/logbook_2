@@ -1,0 +1,144 @@
+<!-- 
+  - @author    ThemesBuckets <themebucketbd@gmail.com>
+  - @copyright Copyright (c) 2018
+  - @license   Fulcrumy
+-->
+<!-- Home Page  -->
+
+<!-- Header  -->
+<ion-header no-border>
+  <header-one title="Beranda"></header-one>
+</ion-header>
+
+<!-- Contents  -->
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-avatar item-start>
+        <img style="height: 45px; width: 45px;" src="assets/imgs/avatar.png">
+      </ion-avatar>
+
+      <h2>{{avatar.welcome}}</h2>
+      <ion-grid no-padding>
+        <ion-row>
+          <ion-col>
+            <sub>{{avatar.email}},&nbsp;
+            <a *ngIf="!avatar.active" color="color10" (click)="logIn()">
+				  login&nbsp;<ion-icon name="log-in"></ion-icon>
+			</a>
+			<a *ngIf="avatar.active" color="color10" (click)="logOut()">
+				  logout&nbsp;<ion-icon name="log-out"></ion-icon>
+			</a>
+			</sub>
+          </ion-col>
+        </ion-row>
+      </ion-grid>      
+    </ion-item>  
+  </ion-card>
+
+  <!-- All Travel Categories -->
+  <menu-category></menu-category>
+  <!-- You will find this component from components folder -->
+  <!-- Source Path - src/components/travel-category  -->
+
+
+  <!-- Deals Component -->
+  <deals></deals>
+  <!-- You will find this component from components folder -->
+  <!-- Source Path - src/components/deals  -->
+  <ion-item no-lines>
+    <ion-icon name="cog"></ion-icon>&nbsp;
+    Informasi Kapal Listrik
+  </ion-item>
+  <div class="customer-service">
+    <ion-list no-lines>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/imgs/icons/reklame/Map.png">
+        </ion-thumbnail>
+        <p style="font-weight: bold">Lokasi Kapal: </p>
+        <p style="margin-top: 10px">Pantai Boom, Banyuwangi</p>
+      </ion-item>
+      <ion-item>
+         <ion-label><p style="font-weight: bold"><ion-icon name="information"></ion-icon>&nbsp;Kapasitas Power dan Kelistrikan</p></ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-row>
+          <ion-col col-6 style="border-right: 1.5px solid #f2f2f2">
+              <ion-icon name="battery-charging" item-start></ion-icon>
+			  Charge
+			  <ion-badge item-end>Off</ion-badge>
+          </ion-col>
+          <ion-col col-6 style="border-right: 1.5px solid #f2f2f2">
+              <ion-icon name="battery-full" item-start></ion-icon>
+			  Power
+			  <ion-badge item-end>10000 W</ion-badge>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 style="border-right: 1.5px solid #f2f2f2">
+              <ion-icon name="pulse" item-start></ion-icon>
+			  Voltase
+			  <ion-badge item-end>60V</ion-badge>
+          </ion-col>
+          <ion-col col-6 style="border-right: 1.5px solid #f2f2f2">
+			  Arus
+			  <ion-badge item-end>2A</ion-badge>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 style="border-right: 1.5px solid #f2f2f2">
+			  Arus L/H
+			  <ion-badge item-end>3.28/3.29 A</ion-badge>
+          </ion-col>
+          <ion-col col-6 style="border-right: 1.5px solid #f2f2f2">
+			  Delta
+			  <ion-badge item-end>0.075 A</ion-badge>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 style="border-right: 1.5px solid #f2f2f2">
+			  Suhu 1&2
+			  <ion-badge item-end>30.3 & 30.5 &deg;C</ion-badge>
+          </ion-col>
+          <ion-col col-6 style="border-right: 1.5px solid #f2f2f2">
+			  Suhu 3&4
+			  <ion-badge item-end>28.2 & 30 &deg;C</ion-badge>
+          </ion-col>
+        </ion-row> 
+      </ion-item>
+    </ion-list>
+  </div>
+  <ion-item no-lines>
+    <ion-icon name='custom-CS-White'></ion-icon>&nbsp;
+    Customer Service
+  </ion-item>
+
+  <div class="customer-service">
+    <ion-list no-lines>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/imgs/icons/home/CS.png">
+        </ion-thumbnail>
+        <p style="font-weight: bold">Ada yang bisa dibantu?</p>
+        <p style="margin-top: 10px">Kami siap membantu Anda 24 jam.</p>
+      </ion-item>
+      <ion-item>
+        <ion-row>
+          <ion-col col-6 style="border-right: 1.5px solid #f2f2f2">
+            <a href="tel:{{contactInfos.tel1}}">
+              <ion-icon name='custom-telepon'></ion-icon>
+              &nbsp;&nbsp;&nbsp;TELEPON
+            </a>
+          </ion-col>
+          <ion-col col-6>
+            <a href="mailto:{{contactInfos.email}}">
+              <ion-icon name='custom-email'></ion-icon>
+              &nbsp;&nbsp;&nbsp;EMAIL
+            </a>
+          </ion-col>
+        </ion-row> 
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

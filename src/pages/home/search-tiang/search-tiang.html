@@ -1,0 +1,45 @@
+
+<!-- Header  -->
+<ion-header no-border>
+  <header-modal title="Cari Reklame" page="HomePage"></header-modal>
+</ion-header>
+
+<!-- Contents  -->
+<ion-content class="bg-style">
+  <ion-list>
+    <ion-item>
+      	  <ion-icon color="color7" name="locate" item-start></ion-icon>
+	  	  <ion-avatar no-padding (tap)="getLocation('Lokasi area','Map')">
+		      <p><sup>Lokasi area:</sup></p>
+		      <h3 text-wrap>  
+	        		{{searchObjects.originLocationName}}
+			  </h3>
+			  <p><sup>{{searchObjects.lat}}/{{searchObjects.lng}}</sup></p>
+	      </ion-avatar>
+	      <ion-icon name="custom-navigation" item-end (tap)="disekitar()"></ion-icon>
+	</ion-item>
+	<ion-item>
+		<ion-icon name="custom-reklame_search" item-start></ion-icon>
+  		<ion-avatar no-padding (tap)="getLocation('Cari Tiang','qTiang')">
+		    <p><sup>cari nama:</sup></p>
+		    <h3 text-wrap>  
+        		{{searchObjects.querysearch}}
+		    </h3>
+		</ion-avatar>
+	</ion-item>
+		<ion-row padding-left >
+			<ion-col col-3 text-center>
+				<button ion-button full round class="custom-btn" color="color4" (tap)="reset()">Reset</button>
+			</ion-col>
+			<ion-col col-6 text-center>
+				<button ion-button full round class="custom-btn" (tap)="findMap(0)">Cari</button>
+			</ion-col>
+			<ion-col col-3 text-center>
+				<button ion-button clear (click)="findMap(1)">
+				<ion-icon name="custom-map" style="zoom: 2;"></ion-icon>
+				</button>
+			</ion-col>
+		</ion-row>	
+	</ion-list>
+</ion-content>
+<!-- End Content  -->

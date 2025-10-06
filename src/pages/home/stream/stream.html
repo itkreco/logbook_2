@@ -1,0 +1,47 @@
+
+<!-- Header  -->
+<ion-header no-border>
+  <header-modal title="Monitor CCTV" page="HomePage"></header-modal>
+</ion-header>
+
+<!-- Content  -->
+<ion-content class="bg-style">
+  <ion-item  style="align-items:end;">
+		<ion-icon name="boat" color="color5" item-start></ion-icon>
+		<ion-avatar no-padding>
+     		<p><sup>streaming location</sup></p>
+		<ion-item class="item-date" no-lines>
+			<ion-multi-picker item-content
+				[multiPickerColumns]="camStatus" 
+				[(ngModel)]="defCamStatus"
+				(ngModelChange)="onChange($event)"
+				[separator]="'_'"
+				[cancelText]="'Batal'" 
+				[doneText]="'Pilih'">
+			</ion-multi-picker>
+		</ion-item>
+		</ion-avatar>
+	</ion-item>	
+  	<ion-row padding-left >
+		<ion-col col-12 text-center>
+			<button ion-button full round class="custom-btn" (tap)="runStream()">view streaming</button>
+		</ion-col>
+	</ion-row>
+	<link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet">
+	<ion-row padding-left *ngFor="let stream of arrStream; let i=index;">
+		<ion-col col-12 text-center>
+			  <div className="video-wrap" *ngIf="status>0" style="text-align:-webkit-center;">
+		      	   <h1>Video {{stream[2]}}</h1>
+			      <video 
+				    id="vid{{i}}"
+				    class="video-js"
+				    controls
+				    preload="auto"
+				    width="300"
+				    data-setup="{}">
+				    <source src="" type="application/vnd.mpegurl"/>
+				  </video>
+			  </div>
+		</ion-col>
+	</ion-row>
+</ion-content>

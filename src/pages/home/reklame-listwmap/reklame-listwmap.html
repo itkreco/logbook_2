@@ -1,0 +1,41 @@
+<!-- 
+  - @author    ThemesBuckets <themebucketbd@gmail.com>
+  - @copyright Copyright (c) 2018
+  - @license   Fulcrumy
+-->
+<!-- Header  -->
+<ion-header no-border>
+  <header-modal title="NPWPD" subtitle="Data/Peta Reklame"></header-modal>
+</ion-header>
+
+<!-- Content  -->
+<ion-content class="bg-style">
+  <div no-padding no-margin>
+  <ion-card>
+    <ion-item style="align-items:end;" class="border-bottom" 
+    	*ngFor="let reklame of reklames; let i=index;" (click)="viewDetails(i)" id="list_{{i}}">
+      <h3 no-padding no-margin text-wrap>{{ reklame.name }}</h3>
+      <p>
+        npwpd: {{reklame.npwpd}}
+      </p>
+      <p>
+        <ion-icon name="pin"></ion-icon>&nbsp;
+        {{reklame.alamat_tiang}},{{reklame.description}}
+      </p>
+    </ion-item>
+  </ion-card>
+  </div>
+</ion-content>
+<!-- 
+<ion-footer>
+  <ion-row>
+  	<ion-col no-margin no-padding>
+      <button color="color10" ion-button full (click)="addNew()" class="sort">
+        <ion-icon name="add-circle" style="zoom: 1.5;"></ion-icon>
+        &nbsp;
+        Add New Data
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
+-->

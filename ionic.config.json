@@ -1,0 +1,7 @@
+{
+  "name": "logbook",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

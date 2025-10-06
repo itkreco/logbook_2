@@ -1,0 +1,92 @@
+
+<!-- Header  -->
+<ion-header no-border>
+  <header-modal title="Data Logbook" page="HomePage"></header-modal>
+</ion-header>
+
+<!-- Contents  -->
+<ion-content class="bg-white">
+  <ion-list>
+		<!-- logbook type -->
+    	<ion-item  style="align-items:end;">
+			<ion-icon name="book" color="color5" item-start></ion-icon>
+			<ion-avatar no-padding>
+      		<p><sup>Type</sup></p>
+			<ion-item class="item-date" no-lines>
+				<ion-multi-picker item-content
+					[multiPickerColumns]="logstatus" 
+					[(ngModel)]="defLogStatus"
+					(ngModelChange)="onChange($event,1)"
+					[separator]="'_'"
+					[cancelText]="'Batal'" 
+					[doneText]="'Pilih'">
+				</ion-multi-picker>
+			</ion-item>
+			</ion-avatar>
+		</ion-item>	
+		<!-- Shipname -->
+		<ion-item  style="align-items:end;">
+			<ion-icon name="boat" color="color5" item-start></ion-icon>
+			<ion-avatar no-padding>
+      		<p><sup>Nama Kapal</sup></p>
+			<ion-item class="item-date" no-lines>
+				<ion-multi-picker item-content
+					[multiPickerColumns]="status" 
+					[(ngModel)]="defStatus"
+					(ngModelChange)="onChange($event)"
+					[separator]="'_'"
+					[cancelText]="'Batal'" 
+					[doneText]="'Pilih'">
+				</ion-multi-picker>
+			</ion-item>
+			</ion-avatar>
+		</ion-item>	
+		<!-- Dates  -->
+	    <ion-row class="animated zoomIn" justify-content-center align-items-center style="height: 100%">
+	
+	      <!-- Departure Date  -->
+	      <ion-col col-5 text-center>
+	        <p class="title">Mulai</p>
+	        <ion-card (tap)="openCalendar()">
+	          <ion-card-content>
+	            <p class="date">{{searchObjects.dstart | date: 'dd'}}</p>
+	            <p>{{searchObjects.dstart | date: 'MMM'}} &nbsp;{{searchObjects.dstart | date: 'yy'}}</p>
+	          </ion-card-content>
+	        </ion-card>
+	      </ion-col>
+	
+	      <!-- Date Icon  -->
+	      <ion-col col-2 text-center>
+	        <ion-icon color="color3" name="ios-calendar" style="zoom:2.5;"></ion-icon>
+	      </ion-col>
+	
+	      <!-- Return Date  -->
+	      <ion-col col-5 text-center>
+	        <p class="title">Sampai</p>
+	        <ion-card (tap)="openCalendar()" class="card card-md">
+	          <ion-card-content>
+	            <p class="date">{{searchObjects.dend | date: 'dd'}}</p>
+	            <p>{{searchObjects.dend | date: 'MMM'}} &nbsp;{{searchObjects.dend | date: 'yy'}}</p>
+	          </ion-card-content>
+	        </ion-card>
+	      </ion-col>
+	    </ion-row>
+		
+		<ion-row padding-left >
+			<ion-col col-4 text-center>
+				<button ion-button full round class="custom-btn" color="color4" (tap)="reset()">Reset</button>
+			</ion-col>
+			<ion-col col-8 text-center>
+				<button ion-button full round class="custom-btn" (tap)="findReklame(0)">Proses</button>
+			</ion-col>
+			<!-- 
+			<ion-col col-3 text-center>
+				<button ion-button clear (click)="findReklame(1)">
+				<ion-icon name="custom-map" style="zoom: 2;"></ion-icon>
+				</button>
+			</ion-col>
+			 -->
+		</ion-row>
+	</ion-list>
+</ion-content>
+<!-- End Content  -->

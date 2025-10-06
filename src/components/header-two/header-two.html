@@ -1,0 +1,21 @@
+<!-- Generated template for the HeaderTwoComponent component -->
+<!-- This component is for header toolber that contains back button and page title  -->
+
+<!--
+  - This component is for header toolber.
+  - This header component toolbar `linear` background color.
+-->
+
+<ion-navbar no-border>
+
+  <!-- Back Button  -->
+  <ion-buttons left>
+    <button ion-button color="white" clear (tap)="dismiss()">
+      <ion-icon name="ios-arrow-back" style="zoom:2.0;"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <!-- Page Title  -->
+  <ion-title>{{title}}</ion-title>
+
+</ion-navbar>

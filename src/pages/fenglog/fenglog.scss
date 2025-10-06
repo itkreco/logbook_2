@@ -1,0 +1,45 @@
+page-fenglog {
+	.sort {
+        .action-sheet-title{
+            font-size: 3rem;
+            color: color($colors, white);
+            background: color($colors, color1);
+            text-transform: uppercase;
+        }
+        .action-sheet-button{
+            border-top: #e2e2d4 1px solid;
+        }
+        .ion-md-share {
+            color: #ED4248;
+        }
+        .ion-md-arrow-dropright-circle {
+            color: #508AE4;
+        }
+        .ion-md-heart-outline {
+            color: #31D55F;
+        }
+        .action-sheet-cancel{
+            font-size: 2rem;
+            background: linear-gradient(to right bottom, color($colors, color1), color($colors, color2));
+            color: color($colors, color3);
+        }
+        .action-sheet-cancel ion-icon,
+        .action-sheet-destructive ion-icon {
+            color: #757575;
+        }
+    }
+   ion-footer {
+        .custom-sort {
+            background: linear-gradient(to right bottom, color($colors, color1), color($colors, color2));
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .custom-btn {
+            background: linear-gradient(to right bottom, color($colors, color1), color($colors, color7));
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+}

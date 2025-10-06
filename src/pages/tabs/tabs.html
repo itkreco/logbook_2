@@ -1,0 +1,5 @@
+<ion-tabs>
+  <ion-tab [root]="homePage" tabTitle="Home" tabIcon="home"></ion-tab>
+  <ion-tab [root]="addPage" tabTitle="New Log" tabIcon="create" [enabled]="disabledtab==false"></ion-tab>
+  <ion-tab [root]="listPage" tabTitle="today log" tabIcon="list" [enabled]="restProvider.user!==null"></ion-tab>
+</ion-tabs>

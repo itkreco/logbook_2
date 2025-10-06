@@ -1,0 +1,132 @@
+<!-- 
+  - @author    ThemesBuckets <themebucketbd@gmail.com>
+  - @copyright Copyright (c) 2018
+  - @license   Fulcrumy
+-->
+<!-- Header  -->
+<ion-header no-border>
+  <header-modal title="Logbook" subtitle="Data logbook {{param?.search?.log=='2'?'Mesin':'Dek'}}" [page]="(isTab)?'ReklameListPage':undefined"></header-modal>
+</ion-header>
+
+<!-- Content  -->
+<ion-content class="bg-style">
+  <div no-padding no-margin *ngIf="param?.isactive==0">
+  <ion-card>
+    	<ion-grid>
+		    <ion-row class="ion-align-items-start" *ngFor="let reklame of reklames; let i=index;">
+		        <ion-col>
+		        	<ion-item *ngIf="isDiffDate(reklame[4])" color=color13 class="border-bottom">
+		        		<h3 no-padding no-margin text-wrap><ion-icon id=calender name="calendar"></ion-icon>&nbsp;{{dumDate}}</h3>
+		        		<ion-icon *ngIf="reklame?.length==9" color=color12 class="oil" name="water" item-end>&nbsp;BBM&nbsp;</ion-icon>
+						<ion-badge *ngIf="reklame?.length==9" color=color9 item-end>{{reklame[8]}}</ion-badge>
+		        	</ion-item>
+		        	<div *ngIf="isDiffGrHour(reklame[4])" class="gjam">
+		        		<ion-badge color="color8">{{getGHour()}}&nbsp;<ion-icon name="time"></ion-icon></ion-badge>
+		        	</div>
+				    <ion-item style="align-items:end;" class="border-bottom" (click)="viewDetails(i)" id="list_{{i}}">
+				      <ion-avatar item-start style="align-self: center;">
+				        <img src="{{'assets/imgs/icons/logbook/'+reklame[3]+'.png'}}">
+				      </ion-avatar>
+				      <h3 no-padding no-margin text-wrap>{{ reklame[3]}}</h3>
+				      <p text-wrap>
+				         {{dumHour+':'+reklame[4].split(" ")[1].split(":")[1]}} WIB, {{reklame[7]}}
+				      </p>
+				      <!-- 
+				       <ion-badge 
+				       		color="color{{reklame.exp_status=='unmapped'?'3':(reklame.exp_status=='expiring'?'4':(reklame.exp_status=='active'?'11':'9'))}}">
+				        		{{reklame.exp_status=='unmapped'?'unverified':reklame.exp_status}}
+				        </ion-badge>
+				      <p class="strike"></p>  
+				      -->   
+				      <p text-wrap>
+				      	<sup *ngIf="reklame?.length==8">
+				        	<ion-icon name="pin" style="color: #e93c28"></ion-icon>&nbsp;
+				        	{{reklame[5]+'/'+reklame[6]}}
+				        </sup>
+				        <sup *ngIf="reklame?.length==9">
+				        	<ion-icon name="clock" style="color: #e93c28"></ion-icon>&nbsp;
+				        	Main Engine: {{reklame[5]+', Aux. Engine:'+reklame[6]}}
+				        </sup>
+				      </p>
+				       <button item-end
+				       		*ngIf="(isNum(reklame.lat)&&isNum(reklame.lng))" 
+				       		ion-button small (pointerup)="onInnerPointerUp($event)" 
+				       		(click)="goMap(reklame.lat,reklame.lng,$event)"
+				       		color="color13">
+								&nbsp;<ion-icon name="pin"></ion-icon>
+				      </button>
+				       
+				    </ion-item>
+				 </ion-col>
+			</ion-row>
+		</ion-grid>
+  </ion-card>
+  </div>
+  <div *ngIf="param?.isactive>0" #map id="map"></div>
+</ion-content>
+
+<ion-footer>
+	 <!--
+  <ion-card *ngIf="param.isactive>1">
+  	<ion-item (click)="viewDetails(reklameMap.id)" style="align-items:end;">
+      <ion-thumbnail item-start>
+        <img [src]="reklameMap.photo_primary">
+      </ion-thumbnail>
+      <h3 no-padding no-margin text-wrap>{{ reklameMap.name }}</h3>
+      <p>
+        npwpd: {{reklameMap.npwpd}}
+      </p>
+      <p text-wrap>
+        no: {{reklameMap.no_daftar}},  tiang:{{reklameMap.id_tiang}} 
+      </p>
+      <p text-wrap><ion-icon name="pin"></ion-icon>&nbsp;
+        {{reklameMap.address}},{{reklameMap.desc}}
+      </p>
+      <button ion-button small
+       	(pointerup)="onInnerPointerUp($event)" (click)="goList(reklameMap.id,$event)"
+		color="color{{reklameMap.status=='unmapped'?'3':(reklameMap.status=='expiring'?'4':(reklameMap.status=='active'?'11':'9'))}}">
+		{{reklameMap.status=='unmapped'?'unverified':reklameMap.status}}
+     		&nbsp;<ion-icon name="arrow-dropright-circle"></ion-icon>
+      </button>
+      <p class="strike"></p>     
+      <h3 style="color: #e93c28" text-wrap>
+        Ukuran: {{reklameMap.ukuran}} m lokasi: {{reklameMap.km}} km 
+      </h3>
+      
+      	<button ion-button item-end small outline color="color7" (pointerup)="onInnerPointerUp($event)" (click)="infoReklame(1,$event)">
+			<ion-icon name="close-circle"></ion-icon>
+	   	</button>
+  	</ion-item>
+  </ion-card> 
+   -->
+  <ion-row> 
+    <ion-col no-margin no-padding>
+      <button color="color10" ion-button full (click)="param.search=isTab?undefined:param.search;loadReklameList(true);" class="sort">
+        <ion-icon name="refresh" style="zoom: 1.5;"></ion-icon>
+        &nbsp;reload
+      </button>
+    </ion-col>
+    <ion-col no-margin no-padding *ngIf="bReadonly==false">
+      <button color="color10" ion-button full (click)="addNew()" class="sort" [disabled]="param?.search==undefined">
+        <ion-icon name="add" style="zoom: 1.5;"></ion-icon>
+        &nbsp;Add
+      </button>
+    </ion-col>
+    <ion-col no-margin no-padding>
+      <button color="color10" ion-button full (click)="download()" class="sort" [disabled]="param?.search==undefined">
+        <ion-icon name="download" style="zoom: 1.5;"></ion-icon>
+        &nbsp;
+      </button>
+    </ion-col>
+    <!-- 
+  	<ion-col no-margin no-padding>
+      <button color="color10" ion-button full (click)="openList()" class="sort">
+        <ion-icon name="{{param.isactive==0?'map':'list'}}" style="zoom: 1.5;"></ion-icon>
+        &nbsp;
+        {{param.isactive==0?'Map':'List'}}
+      </button>
+    </ion-col>
+     -->
+  </ion-row>
+  
+</ion-footer>

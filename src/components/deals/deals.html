@@ -1,0 +1,13 @@
+
+<!-- Deals Slider  -->
+<ion-item no-lines>
+  <ion-icon name='custom-gallery'></ion-icon>&nbsp;
+  Foto Gallery
+</ion-item>
+
+<ion-card>
+  <ion-slides padding-left padding-right #slider spaceBetween="10" slidesPerView="1.2" loop="true" effect="slide" autoplay="5000" style="direction:ltr">
+    <ion-slide *ngFor="let deal of deals" [ngStyle]="{'background' : 'url(' + deal.image + ')'}">
+    </ion-slide>
+  </ion-slides>
+</ion-card>

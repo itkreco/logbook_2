@@ -1,0 +1,368 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+ion-app.has-camera,
+ion-app.has-camera page-qr ion-content {
+  --background: transparent;
+  background: transparent !important;
+  ion-item {
+  	opacity:0;
+  }
+  ion-fab{
+  	opacity:1;
+  }
+}
+
+ion-app page-qr ion-content {
+  ion-fab{
+  	opacity:0;
+  }
+}
+
+
+.header-ios {
+    /* ... */
+    /* Status bar height on iOS 10 */
+    //padding-top: 20px !important;
+    /* Status bar height on iOS 11.0 */
+    padding-top: constant(safe-area-inset-top) !important;
+    /* Status bar height on iOS 11+ */
+    padding-top: env(safe-area-inset-top) !important;
+}
+.content-ios {
+    /* ... */
+    /* Status bar height on iOS 10 */
+    //padding-top: 20px !important;
+    /* Status bar height on iOS 11.0 */
+    padding-top: constant(safe-area-inset-top) !important;
+    /* Status bar height on iOS 11+ */
+    padding-top: env(safe-area-inset-top) !important;
+}
+
+ion-badge[outline],
+ion-badge[outline][color="primary"] {
+    color: color($colors, primary, base);
+    border: solid 1px color($colors, primary, base);
+    background: none;
+}
+
+.custom-popover .popover-content {
+    width: 80%;
+}
+.wagon .popover-content {
+    top:50%!important;
+    bottom: 0px!important;
+    left: 0px!important;
+    width: 100%!important;
+  }
+
+.list-header {
+    color: white;
+    text-align: center;
+    font-size: 1.2rem !important;
+    background-color:#0470cb;
+    margin: 0%;
+    .label-md {
+            margin:0;
+    }
+    .label-ios {
+            margin:0;
+    }
+}
+
+//.actionSheet_withIcomoon { font-size: 2.4rem !important; }
+// correct the font dimensions and positioning of the text
+.actionSheet_withIcomoon .button-inner {
+//   font-family: "Roboto", "Helvetica Neue", sans-serif;
+  font-weight: bold;    
+//   font-size: 2rem !important;
+//   color: lightslategrey;
+//   text-transform: uppercase;
+}
+
+.no-margin {
+    font-size: 1.1rem !important;
+    margin-top: 0px;
+}
+
+.border-bottom{
+    border-bottom: 1px solid color($colors, color13);
+}    
+.border-right{
+    border-right: 1px solid color($colors, color13);
+}    
+.border-top{
+    border-top: 1px solid color($colors, color13);
+}    
+
+.bg-style {
+    background-color:color($colors, color13);
+}
+.bg_white {
+    background-color:white;
+}
+.bg_red {
+    background-color:red;
+}
+
+.menu-inner {
+    ion-toolbar {
+        height: 120px;
+        .contents {
+            width: 100%;
+            .left {
+                float: left;
+                width: 30%;
+                img {
+                    width: 70px;
+                    height: 30%;
+                    border-radius: 50%;
+                    margin-top: 5%;
+                }
+            }
+            .right {
+                width: 70%;
+                float: right;
+                margin-top: 8%;
+                color: #fff;
+                .name {
+                    font-size: 1.7rem;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+    .toolbar-background {
+        background: linear-gradient(to right bottom, color($colors, color1), color($colors, color2));
+    }
+    ion-content {
+        .list {
+            margin-bottom: 0 !important;
+        }
+        .item {
+            background-color: transparent !important;
+            color: #222;
+            // font-weight: bold;
+            // font-size: 1.8rem;
+            // font-size: 1.3rem;
+        }
+        i {
+            color: color($colors, color2);
+        }
+    }
+}
+
+.align-text-middle {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+
+ion-icon {
+    // &[class*="custom-"] {
+    //   background-size: contain;
+    //   background-position: 50% 50%;
+    //   background-repeat: no-repeat;
+    // //   background: currentColor;
+    //   width: 1em;
+    //   height: 1em;
+    // }
+
+    &[class*="custom-"] {
+        margin: 0 1.5px 0 0;
+        vertical-align: middle;
+        $sz: 1em;
+        width: $sz;
+        height: $sz;
+    }
+    //in case of active
+    &[class*="tabshome"][ng-reflect-is-active="true"] {
+        background: url("../../assets/imgs/icons/home/Home_Blue.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    //in case of inactive
+    &[class*="tabshome"][ng-reflect-is-active="false"] {
+        background: url("../../assets/imgs/icons/home/Home_White.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    //in case of active
+    &[class*="tabsbook"][ng-reflect-is-active="true"] {
+        background: url("../../assets/imgs/icons/home/Book_Blue.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    //in case of inactive
+    &[class*="tabsbook"][ng-reflect-is-active="false"] {
+        background: url("../../assets/imgs/icons/home/Book_White.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    
+    &[class*="menu"] {
+        background: url("../assets/imgs/icons/home/Menu.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="TRIP"] {
+        background: url("../assets/imgs/icons/home/TRIPoff.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="LOGBOOK"] {
+        background: url("../assets/imgs/icons/home/LOGBOOK.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="EXPENSE"] {
+        background: url("../assets/imgs/icons/home/EXPENSEoff.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="LIST"] {
+        background: url("../assets/imgs/icons/home/LISToff.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="TRACK"] {
+        background: url("../assets/imgs/icons/home/TRACKoff.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="CS"] {
+        background: url("../assets/imgs/icons/home/CS.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="CS-White"] {
+        background: url("../assets/imgs/icons/home/CS_White.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="email"] {
+        background: url("../assets/imgs/icons/home/Email.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="gallery"] {
+        background: url("../assets/imgs/icons/home/Photo.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="telepon"] {
+        background: url("../assets/imgs/icons/home/Telepon.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+
+    &[class*="home_sidemenu"] {
+        background: url("../assets/imgs/icons/sidemenu/Home.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="search"] {
+        background: url("../assets/imgs/icons/sidemenu/Search.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="about_us"] {
+        background: url("../assets/imgs/icons/sidemenu/About_Us.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="contact_us"] {
+        background: url("../assets/imgs/icons/sidemenu/Contact_Us.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="logout"] {
+        background: url("../assets/imgs/icons/sidemenu/Logout.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="logout_2"] {
+        background: url("../assets/imgs/icons/account/Logout.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+
+    &[class*="flight"] {
+        background: url("../assets/imgs/icons/booking/Flight.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="hotel"] {
+        background: url("../assets/imgs/icons/booking/Hotel.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+   
+    &[class*="purchase_history"] {
+        background: url("../assets/imgs/icons/booking/Purchase_History.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="copy"] {
+        background: url("../assets/imgs/icons/booking/Copy.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+   
+
+    &[class*="review"] {
+        background: url("../assets/imgs/icons/account/Review.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+
+    &[class*="help"] {
+        background: url("../assets/imgs/icons/account/Help-Center.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="password"] {
+        background: url("../assets/imgs/icons/account/Password-_-Security.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="push_notification"] {
+        background: url("../assets/imgs/icons/account/Push-Notification.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+
+    &[class*="change"] {
+        background: url("../assets/imgs/icons/flight/Change.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="sort"] {
+        background: url("../assets/imgs/icons/flight/Sort.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="filter"] {
+        background: url("../assets/imgs/icons/reklame/Filter.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="navigation"] {
+        background: url("../assets/imgs/icons/reklame/Destination-Near-Me.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="map"] {
+        background: url("../assets/imgs/icons/reklame/Map.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="location"] {
+        background: url("../assets/imgs/icons/reklame/Location.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="location_blue"] {
+        background: url("../assets/imgs/icons/reklame/Location_Blue.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="location_red"] {
+        background: url("../assets/imgs/icons/reklame/Location_Red.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="locmap"] {
+        background: url("../assets/imgs/icons/reklame/locmap.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="locmapred"] {
+        background: url("../assets/imgs/icons/reklame/locmapred.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="locmapyellow"] {
+        background: url("../assets/imgs/icons/reklame/locmapyellow.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+    &[class*="date_2"] {
+        background: url("../assets/imgs/icons/reklame/Date.png") no-repeat 50% 50%;
+        background-size: contain;
+    }
+}

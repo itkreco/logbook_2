@@ -1,0 +1,133 @@
+<!--
+  Generated template for the FmapPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+  <header-modal title="Reklame" subtitle="Form Data Tiang"></header-modal>
+</ion-header>
+
+<ion-content bg-style>
+	<ion-card [formGroup]="formInput">
+		<ion-input type="hidden" name="id" formControlName="id" [(ngModel)]="formInput.id"></ion-input>
+		
+	    <ion-item class="border-bottom">
+	      <ion-label stacked>No Tiang</ion-label>
+	      <ion-input type="text" name="id_tiang" formControlName="id_tiang" [(ngModel)]="formInput.id_tiang"
+	      [class.invalid]="!formInput.controls.id_tiang?.valid && formInput.controls.id_tiang?.dirty"></ion-input>
+	    </ion-item>
+	    <div *ngIf="!formInput.controls.id_tiang?.valid  && formInput.controls.id_tiang?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan ID Tiang yang valid (length 4).</p>
+	    </div>
+	    
+	    <ion-item class="border-bottom">
+	      <ion-label stacked>No Daftar</ion-label>
+	      <ion-input type="text" name="no_daftar" formControlName="no_daftar" [(ngModel)]="formInput.no_daftar"
+	      [class.invalid]="!formInput.controls.no_daftar?.valid && formInput.controls.no_daftar?.dirty"></ion-input>
+	    </ion-item>
+	    <div *ngIf="!formInput.controls.no_daftar?.valid  && formInput.controls.no_daftar?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan No Daftar yang valid (length 11).</p>
+	    </div>
+	    
+	    <ion-item class="border-bottom" (tap)="getNpwpd('Cari Npwpd (id,daftar,nama,alamat,lokasi)','qReklame')">
+	      <ion-icon name="custom-reklame_search" item-start></ion-icon>
+	  	  <ion-avatar item-start no-padding>
+			    <p><sup>cari Reklame (Npwpd):</sup></p>
+			    <h3 text-wrap>  
+	        		{{qSearch}}
+			    </h3>
+		  </ion-avatar>
+	      <ion-input type="hidden" name="npwpd" formControlName="npwpd" [(ngModel)]="formInput.npwpd"
+	      [class.invalid]="!formInput.controls.npwpd?.valid && formInput.controls.npwpd?.dirty"></ion-input>
+	    </ion-item>
+	    
+	    <div *ngIf="!searchValid">
+	      <p padding-left style="color:#e93c28">Data tdk sama, bisa memilih yg lain jika salah! {{txtValid}}</p>
+	    </div>
+	    
+	    <div *ngIf="!formInput.controls.npwpd?.valid  && formInput.controls.npwpd?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan NPWPD yang valid (length 9).</p>
+	    </div>
+	    
+	    <ion-item class="border-bottom">
+	      <ion-label stacked>Name</ion-label>
+	      <ion-input type="text" name="name" formControlName="name" [(ngModel)]="formInput.name"
+	      [class.invalid]="!formInput.controls.name?.valid && formInput.controls.name?.dirty"></ion-input>
+	    </ion-item>
+	    <div *ngIf="!formInput.controls.name?.valid  && formInput.controls.name?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan Name yang valid.</p>
+	    </div>
+	    
+	    <ion-item class="border-bottom">
+	      <ion-label stacked>Description</ion-label>
+	      <ion-textarea 
+	      		type="text" name="description" 
+	      		formControlName="description" 
+	      		[(ngModel)]="formInput.description"
+	      		rows=3
+	      ></ion-textarea>
+	    </ion-item>
+	    <ion-item class="border-bottom">
+	      <ion-label stacked>Lat/Lng</ion-label>
+	      <ion-input type="number" name="lat" formControlName="lat" [(ngModel)]="formInput.lat"
+		      [class.invalid]="!formInput.controls.lat?.valid && formInput.controls.lat?.dirty"></ion-input>
+		      &nbsp;/&nbsp;
+	      <ion-input type="number" name="lng" formControlName="lng" [(ngModel)]="formInput.lng"
+		      [class.invalid]="!formInput.controls.lng?.valid && formInput.controls.lng?.dirty"></ion-input>
+      	  <button ion-button item-right icon-left color='color13' (click)="getLocation()">
+	        	<ion-icon name="pin"></ion-icon>Get Location
+	      </button>
+	    </ion-item>
+	    <div *ngIf="!formInput.controls.lat?.valid  && formInput.controls.lat?.dirty||!formInput.controls.lng?.valid  && formInput.controls.lng?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan Lat/lng yang valid.</p>
+	    </div>
+	    
+	    <ion-item class="border-bottom">
+	      <ion-label stacked>Status Lokasi</ion-label>
+	      <ion-multi-picker item-content
+				[multiPickerColumns]="locstatus" 
+				[(ngModel)]="formInput.location_status"
+				[separator]="'_'"
+				[cancelText]="'Batal'" 
+				[doneText]="'Pilih'"
+				formControlName="location_status" 
+				name="location_status"
+				[class.invalid]="!formInput.controls.foto?.valid && formInput.controls.foto?.dirty">
+		  </ion-multi-picker>
+	    </ion-item>
+	    <div *ngIf="!formInput.controls.location_status?.valid  && formInput.controls.location_status?.dirty">
+	      <p padding-left style="color:#e93c28">Silahkan pilih Status Lokasi yang valid.</p>
+	    </div>
+	    
+	    
+	    <ion-item class="border-bottom">
+	      <ion-label stacked>File Foto</ion-label>
+	      <button ion-button item-right icon-left color='color13' (click)="presentCamera()">
+	        	<ion-icon name="camera"></ion-icon>New Picture
+	      </button>
+	      <ion-input type="text" name="foto" formControlName="foto" [(ngModel)]="formInput.foto"
+	      [class.invalid]="!formInput.controls.foto?.valid && formInput.controls.foto?.dirty"></ion-input>
+	    </ion-item>
+	    <div *ngIf="!formInput.controls.foto?.valid  && formInput.controls.foto?.dirty">
+	      <p padding-left style="color:#e93c28">Masukan Foto yang valid.</p>
+	    </div>
+	    <ion-item class="border-bottom">
+	        <ion-label stacked>Foto/QR</ion-label>
+		    <ion-thumbnail item-end>
+		 		<img width="250" src="{{sUrl+'files/foto/'+formInput.foto}}"/>
+		 	</ion-thumbnail>
+		    <ion-thumbnail item-end>
+		 		<img width="250" src="{{sUrl+'files/qr/'+qrFileName}}"/>
+		 	</ion-thumbnail>
+		</ion-item>
+	</ion-card>
+</ion-content>
+
+<ion-footer>
+	<ion-item>
+	<button color="color10" ion-button round full icon-left (tap)="save()" [disabled]="!formInput.valid">
+        <ion-icon name="checkmark"></ion-icon>Save
+    </button>
+    </ion-item>
+</ion-footer>

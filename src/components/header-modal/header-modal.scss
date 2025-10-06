@@ -1,0 +1,25 @@
+header-modal {
+    .toolbar-background {
+        background: linear-gradient(to right bottom, color($colors, color1), color($colors, color2));
+        border: none;
+    }
+    .toolbar-title {
+      color: #fff !important;
+      .title {
+        font-size: 17px;
+        margin: 0;  
+        padding: 0;
+      }
+      .subtitle {
+        font-size: 11px;
+        margin: 0;  
+        padding: 0;
+      }
+    }      
+
+    .header-title {
+      padding-left: 20px;
+      padding-right: 0;
+    }
+
+}

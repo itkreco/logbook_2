@@ -1,0 +1,23 @@
+page-ftracking {
+	ion-header {
+        .toolbar-background {
+            background: linear-gradient(to right bottom, color($colors, color1), color($colors, color2));
+            border: none;
+        }
+        .toolbar-title {
+            color: #fff !important;
+        }
+        .searchbar-search-icon{
+            top: 16px !important;
+        }
+        .searchbar-input {
+            border-radius: 10px !important;
+        }
+    }
+   
+   ion-content{
+   		#maploc {
+				height: 100%;
+			}
+   	}
+}

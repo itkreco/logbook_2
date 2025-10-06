@@ -1,0 +1,29 @@
+
+<!-- Header  -->
+<ion-header no-border>
+  <header-modal title="Cari Reklame" page="HomePage"></header-modal>
+</ion-header>
+
+<!-- Contents  -->
+<ion-content class="bg-style">
+  <ion-list>
+	<ion-item>
+		<ion-icon name="custom-reklame_search" item-start></ion-icon>
+  		<ion-avatar no-padding (tap)="getLocation('Cari NPWPD','qNpwpd')">
+		    <p><sup>cari npwpd:</sup></p>
+		    <h3 text-wrap>  
+        		{{searchObjects.querysearch}}
+		    </h3>
+		</ion-avatar>
+	</ion-item>
+	<ion-row padding-left >
+		<ion-col col-3 text-center>
+			<button ion-button full round class="custom-btn" color="color4" (tap)="reset()">Reset</button>
+		</ion-col>
+		<ion-col col-6 text-center>
+			<button ion-button full round class="custom-btn" (tap)="findReklame(0)">Cari</button>
+		</ion-col>
+	</ion-row>	
+	</ion-list>
+</ion-content>
+<!-- End Content  -->

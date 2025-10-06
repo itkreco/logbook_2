@@ -1,0 +1,15 @@
+
+<!-- Menu Category List  -->
+<ion-card>
+  <ion-grid>
+    <ion-row wrap justify-content-center align-items-center>
+      <ion-col *ngFor="let category of categories" (tap)="goToCategoryPage(category)">
+        <!-- <ion-icon name='custom-{{category.name}}' style="zoom: 2.5;"></ion-icon> -->
+        <img src="assets/imgs/icons/home/{{category.name}}.png" style="width : 100% ; height : 100%">
+
+        <!-- Category Name  -->
+        <!-- <p>{{category.name}}</p> -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card>

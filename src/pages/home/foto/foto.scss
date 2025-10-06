@@ -1,0 +1,24 @@
+page-foto {
+	.fotosheet {
+        
+        .action-sheet-title{
+            font-size: 3rem;
+            color: color($colors, white);
+            background: color($colors, color1);
+            text-transform: uppercase;
+        }
+        .action-sheet-button{
+            border-top: #e2e2d4 1px solid;
+        }
+        .action-sheet-cancel{
+            font-size: 2rem;
+            background: linear-gradient(to right bottom, color($colors, color1), color($colors, color2));
+            color: color($colors, color3);
+        }
+        .action-sheet-cancel ion-icon,
+        .action-sheet-destructive ion-icon {
+            color: #757575;
+        }
+    }
+
+}

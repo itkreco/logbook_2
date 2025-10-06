@@ -1,0 +1,61 @@
+page-sign-inpop {
+    // .container {
+    //     height: 100%;
+    //     text-align: center;
+    //     .top-content {
+    //         height: 25%;
+    //         background-image: linear-gradient(to right bottom, color($colors, color1), color($colors, color2));
+    //         -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.14);
+    //         box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.14);
+    //         .title {
+    //             font-size: 3.5rem;
+    //             font-weight: 500;
+    //             color: #fff;
+    //             position: relative;
+    //             top: 40%;
+    //             transform: translateY(-40%);
+    //         }
+    //     }
+    //     .form-content {
+    //         height: 65%;
+    //         width: 80%;
+    //         display: inline-block;
+    //         text-align: center;
+    //         form {
+    //             padding-top: 20%;
+    //             ion-list {
+    //                 .item {
+    //                     padding-left: 0;
+    //                     margin-bottom: 10px;
+    //                     .text-input {
+    //                         padding: 5px;
+    //                     }
+    //                 }
+    //             }
+    //             .custom-btn {
+    //                 background-image: linear-gradient(to right bottom, color($colors, color1), color($colors, color2));
+    //                 padding: 2.2rem 2.2rem;
+    //                 font-size: 16px;
+    //                 font-weight: bold;
+    //             }
+    //             .facebook {
+    //                 background: #3B5998;
+    //             }
+    //             .google {
+    //                 background: red;
+    //             }
+    //             .twitter {
+    //                 background: #1dcaff;
+    //             }
+                .error-message {
+                    font-size: 14px;
+                    color: color($colors, danger);
+                    padding-left: 15px;
+                }
+               .item-md{
+               		padding-left:0px;
+               	}
+    //         }
+    //     }
+    // }
+}

@@ -1,0 +1,72 @@
+<!-- 
+  - @author    ThemesBuckets <themebucketbd@gmail.com>
+  - @copyright Copyright (c) 2018
+  - @license   Fulcrumy
+-->
+
+
+<!-- Header  -->
+<ion-header no-border>
+  <header-two title="Login"></header-two>
+</ion-header>
+
+<!-- Login Page -->
+
+<ion-content>
+  <div>
+
+    <!-- Title of Page  -->
+    <!-- <div class="top-content" text-center>
+      <div class="animated fadeInDown title">SIGN IN</div>
+    </div> -->
+    
+	<!-- 
+	<re-captcha
+      #captchaRef1="reCaptcha"
+      size="invisible"
+      (resolved)="$event && doLogin($event)"
+    ></re-captcha>
+    captchaRef1.execute()
+     -->
+    <!-- Sign In Form  -->
+    <div style="margin: 5px 15px 5px 15px;">
+
+      <form [formGroup]="signInForm">
+        <ion-list>
+          <!-- Email Address -->
+          <ion-item>
+            <ion-label>
+              <ion-icon name="md-mail" color="color2"></ion-icon>
+            </ion-label>
+            <ion-input type="email" placeholder="Your Email Address" name="email" formControlName="email" [(ngModel)]="signInForm.email"
+              [class.invalid]="!signInForm.controls.email.valid && signInForm.controls.email.dirty"></ion-input>
+          </ion-item>
+
+          <!-- Email Validation Message  -->
+          <div class="error-message" *ngIf="!signInForm.controls.email.valid  && signInForm.controls.email.dirty">
+            <p>Please enter a valid email address.</p>
+          </div>
+
+          <!-- Password -->
+          <ion-item>
+            <ion-label><ion-icon name="md-key" color="color2"></ion-icon></ion-label>
+            <ion-input type="password" placeholder="Your Password" name="password" formControlName="password" [(ngModel)]="signInForm.password"
+              [class.invalid]="!signInForm.controls.password.valid && signInForm.controls.password.dirty"></ion-input>
+          </ion-item>
+
+          <!-- Password Validation Message  -->
+          <div class="error-message" *ngIf="!signInForm.controls.password.valid  && signInForm.controls.password.dirty">
+            <p>Masukan password yg valid.</p>
+          </div>
+
+        </ion-list>
+
+        <!-- Sign In Button  -->
+        <button ion-button round full round type="button" class="custom-btn" [disabled]="!signInForm.valid" (tap)="doLogin()">
+            Sign In
+        </button>
+
+      </form>
+    </div>
+  </div>
+</ion-content>

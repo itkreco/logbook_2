@@ -1,0 +1,62 @@
+<!-- 
+  - @author    ThemesBuckets <themebucketbd@gmail.com>
+  - @copyright Copyright (c) 2018
+  - @license   Fulcrumy
+-->
+<!-- Location Search Page  -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-searchbar *ngIf="(type.fil=='Mapsearch')" [(ngModel)]="searchInput" (ionInput)="getItems($event)" placeholder="{{type.label}}"></ion-searchbar>
+    <ion-buttons left>
+      <button ion-button color="white" clear (tap)="dismiss()">
+        <ion-icon name="arrow-back" style="zoom:2.0;" color="white"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Contents  -->
+<ion-content class="bg-style">
+  <!-- List Of Locations  -->
+
+  <ion-list *ngIf="(type.fil=='Mapsearch')">
+    <ion-item *ngFor="let location of locations" (click)="chooseMapLocation(location)">
+      <h3 text-wrap>{{ location.structured_formatting.main_text }}</h3>
+      <p class="no-margin">{{ location.description }}</p>
+    </ion-item>  
+  </ion-list>
+  
+  <ion-list *ngIf="type.fil!=='Map'">
+    <div *ngFor="let location of locations" (click)="chooseLocation(location)">
+      <ion-item>
+        <p text-wrap>{{ location.name }}</p>
+        <p text-wrap><sup>{{ location.location }}</sup></p>
+        <p *ngIf="location.count>1" item-end><ion-badge color="color7" text-wrap>{{ location.count }}</ion-badge> Data</p>
+      </ion-item>
+    </div>
+  </ion-list>
+  <!-- 
+  <ion-list *ngIf="type.fil!=='REKLAME'">
+    <div *ngFor="let location of locations" (click)="chooseLocation(location)">
+      <ion-item *ngIf="type.fil=='PETA'">
+        <p text-wrap>{{ location.name }}</p>
+        <div item-end text-center>
+          <ion-badge outline>{{ location.category }}</ion-badge>
+          <p *ngIf="location.category!='PETA'">{{ location.count }} Reklame</p>
+        </div>
+      </ion-item>
+    </div>
+  </ion-list>
+   -->
+  <div #map id='maploc' *ngIf="(type.fil=='Map'||type.fil=='Mapsearch')"></div>
+</ion-content>
+<ion-footer  *ngIf="(type.fil=='Map'&&(type.koord.lat==null||type.koord.lng==null))">
+	
+	<ion-item>
+		 <ion-label>lat:{{selected.pos?.lat}} lon:{{selected.pos?.lng}}</ion-label>
+		 <button color="color10" ion-button full icon-left (click)="confirm()" [disabled]="selected.pos==undefined">
+	      	<ion-icon name="checkmark"></ion-icon>Confirm
+	     </button>
+    </ion-item>
+</ion-footer>

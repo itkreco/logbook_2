@@ -1,0 +1,34 @@
+header-one {
+    .toolbar-background {
+        background: linear-gradient(to right bottom, color($colors, color1), color($colors, color2));
+        border: none;
+    }
+    // .toolbar-title {
+    //     color: #fff !important;
+    // }
+    .toolbar-title {
+        color: #fff !important;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+    }
+    #notification-button {
+        position: relative;
+        width: 42px;
+        top: 1px;
+        right: 1px;
+        overflow: visible !important;
+    }
+    #notifications-badge {
+        background-color: red;
+        position: absolute;
+        top: -3px;
+        right: -3px;
+        border-radius: 100%;
+    }
+}

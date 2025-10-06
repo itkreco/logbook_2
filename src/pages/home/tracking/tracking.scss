@@ -1,0 +1,43 @@
+page-tracking {
+    .item-status{
+        min-height: auto;
+        padding: 0% !important;
+        margin: 0% !important;
+        .label{
+            margin:0;
+        }
+    }   
+    ion-multi-picker {
+        min-height: auto;
+        padding: 0% !important;
+        margin: 0% !important;
+        font-size: 1.5rem;
+    }    
+    ion-footer {
+        .card {
+            margin: 0px !important;
+            width: 100% !important;
+            .list {
+                .item {
+                    border-bottom: 1px solid color($colors, color13);
+                    .range {
+                        padding-bottom: 0px;
+                    }                  
+                }
+                .row .col div {
+                    border-bottom: 1px solid color($colors, color14);
+                }
+                .grid {
+                    text-align: center;
+                    .row .col {
+                        padding: 0px;
+                    }
+                }
+            }
+        }
+    }
+    .range.range-has-pin {
+        padding-top: 20px;
+        padding-right: 0px;
+    }
+}

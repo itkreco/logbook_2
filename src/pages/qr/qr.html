@@ -1,0 +1,45 @@
+<!--
+  Generated template for the QrPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+  <header-modal title="Scan" subtitle="Scanning Qr-code" page="HomePage"></header-modal>
+</ion-header>
+
+<ion-content class="bg-style">
+  <ion-item>
+    <p><sup>File:</sup></p>
+    <p> {{qrName}}</p>
+    <button ion-button item-right icon-left color='color13' (click)="prepare()">
+        <ion-icon name="qr-scanner"></ion-icon>Scann
+      </button>
+  </ion-item>
+  <ion-item>
+    <h4>Image Preview</h4>
+ 	<ion-thumbnail>
+ 		<img src="{{sUrl+'files/qr/'+qrName}}"/>
+ 	</ion-thumbnail>
+  </ion-item>
+  
+	<ion-fab bottom right slot="fixed">
+  		<button *ngIf="flashExist" ion-fab  color="color{{flashActive?'13':'3'}}" (click)="flashOn()">
+  			<ion-icon  name="flash"></ion-icon>
+  		</button>
+  		<button *ngIf="camExist" ion-fab color="color3" (click)="cameraChange()">
+  			<ion-icon name="reverse-camera"></ion-icon>
+  		</button>
+  		<button ion-fab color="color3" (click)="cameraStop()">
+  			<ion-icon name="exit"></ion-icon>
+  		</button>
+  	</ion-fab>
+</ion-content>
+
+<ion-footer>
+	<ion-item>
+	      <button ion-button item-right full icon-left (click)="getData()" color='color3' [disabled]="qrName === null||qrName==''">
+	        <ion-icon name="cloud-download"></ion-icon>Get Detail
+	      </button>
+    </ion-item>
+</ion-footer>
